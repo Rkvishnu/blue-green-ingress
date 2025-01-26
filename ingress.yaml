@@ -23,7 +23,7 @@ metadata:
   name: green-app-canary
   annotations:
     nginx.ingress.kubernetes.io/canary: "true"
-    nginx.ingress.kubernetes.io/canary-weight: "50"
+    nginx.ingress.kubernetes.io/canary-weight: "25"
 spec:
   rules:
   - host: "example.com"

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: blue-app
+  template:
+    metadata:
+      labels:
+        app: blue-app
+    spec:
+      containers:
+      - name: blue-app
+        image: hashicorp/http-echo
+        args:
+        - "-listen=:8080"
+        - "-text=I am blue"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blue-app
+spec:
+  selector:
+    app: blue-app
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+  clusterIP: None

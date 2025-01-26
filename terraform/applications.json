@@ -1,0 +1,21 @@
+{
+    "applications": [
+      {
+        "name": "blue-app",
+        "image": "hashicorp/http-echo",
+        "args": "-listen=:8080 -text=\"I am blue\"",
+        "port": 8080,
+        "traffic_weight": "75",
+        "replicas": 2
+      },
+      {
+        "name": "green-app",
+        "image": "hashicorp/http-echo",
+        "args": "-listen=:8081 -text=\"I am green\"",
+        "port": 8081,
+        "traffic_weight": "25",
+        "replicas": 3
+      }
+    ]
+  }
+  
